@@ -15,6 +15,9 @@
     "facebook-downloader"
   ],
   "author": "TIKAM CHAND MEGHWANSHI <https://www.tcmhack.in>",
+  "contributors": [
+    "RFS-ADRENO"
+  ],
   "license": "MIT",
   "dependencies": {
     "axios": "^0.26.1"
