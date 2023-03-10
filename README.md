@@ -1,33 +1,32 @@
-# fb-downloader v1.0.3
+# fb-downloader v1.0.6
 
 #### Downloads HD videos from Facebook
 
 ##### Developed By
 
-[![N|Solid](https://blog.tcmhack.in/wp-content/uploads/2019/04/cropped-tcmhack-logo.png)](https://admin.tcmhack.in)
-
-![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
+[![N|Solid](https://blog.tcmhack.in/wp-content/uploads/2019/04/cropped-tcmhack-logo.png)](https://admin.tcmhack.in) <strong>&</strong>
+[![XaviaBot](https://i.ibb.co/BTKrKBg/xavia-logo-with-text.png)](https://github.com/XaviaTeam)
 
 FB Downloader is a simple JavaScript package which provides a facility to download videos form Facebook in available quality
 
-It is open source with a [public repository](https://github.com/tikamchand06/fb-downloader.git) on GitHub.
+It is open source with a [public repository](https://github.com/RFS-ADRENO/fb-downloader.git) on GitHub.
 
 ## Installation
 
 You can install this package via below command
 
 ```sh
-npm i fb-downloader
+npm i @xaviabot/fb-downloader
 ```
 
 ## Example
 
 ```sh
-import getFBInfo from "fb-downloader";
+import getFBInfo from "@xaviabot/fb-downloader";
 
 OR
 
-const getFBInfo = require("fb-downloader");
+const getFBInfo = require("@xaviabot/fb-downloader");
 
 getFBInfo("https://www.facebook.com/watch?v=272591278381388").then(result => console.log("Result:", result)).catch(error => console.log("Error:", error));
 
