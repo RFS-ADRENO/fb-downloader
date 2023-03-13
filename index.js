@@ -37,7 +37,7 @@ const getFBInfo = (videoUrl, cookie, useragent) => {
     ) return reject("Please enter the valid Facebook URL");
 
     axios.get(videoUrl, { headers }).then(({ data }) => {
-      data = data.replace(/\\/g, "").replace(/&quot;/g, '"').replace(/&amp;/g, "&");
+      data = data.replace(/&quot;/g, '"').replace(/&amp;/g, "&");
 
       const sdMatch = data.match(/"playable_url":"(.*?)"/) || data.match(/sd_src\s*:\s*"([^"]*)"/) || data.match(/(?<="src":")[^"]*(https:\/\/[^"]*)/);
       const hdMatch = data.match(/"playable_url_quality_hd":"(.*?)"/) || data.match(/hd_src\s*:\s*"([^"]*)"/);
