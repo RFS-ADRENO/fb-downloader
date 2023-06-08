@@ -4,7 +4,7 @@
  * @param {string} [cookie] - Facebook cookie (optional)
  * @param {string} [useragent] - User agent (optional)
  */
-export declare function getVideoInfo(
+export default function getVideoInfo(
     videoUrl: string,
     cookie?: string,
     useragent?: string
