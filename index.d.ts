@@ -8,7 +8,7 @@ export default function getVideoInfo(
     videoUrl: string,
     cookie?: string,
     useragent?: string
-): Promise<Video>;
+): Promise<VideoInfo>;
 
 export interface VideoInfo {
     url: string;

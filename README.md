@@ -1,4 +1,4 @@
-# fb-downloader v1.0.12
+# fb-downloader v1.0.13
 
 #### Downloads HD videos from Facebook
 
