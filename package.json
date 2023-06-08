@@ -1,6 +1,6 @@
 {
   "name": "@xaviabot/fb-downloader",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Downloads HD videos from Facebook.",
   "main": "index.js",
   "scripts": {
@@ -21,5 +21,6 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.26.1"
-  }
+  },
+	"types": "index.d.ts"
 }
