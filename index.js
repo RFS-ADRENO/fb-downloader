@@ -39,10 +39,12 @@ const getFBInfo = (videoUrl, cookie, useragent) => {
     axios.get(videoUrl, { headers }).then(({ data }) => {
       data = data.replace(/&quot;/g, '"').replace(/&amp;/g, "&");
 
-      const sdMatch = data.match(/"playable_url":"(.*?)"/) || data.match(/sd_src\s*:\s*"([^"]*)"/) || data.match(/(?<="src":")[^"]*(https:\/\/[^"]*)/);
-      const hdMatch = data.match(/"playable_url_quality_hd":"(.*?)"/) || data.match(/hd_src\s*:\s*"([^"]*)"/);
+      const sdMatch = data.match(/"browser_native_sd_url":"(.*?)"/) || data.match(/"playable_url":"(.*?)"/) || data.match(/sd_src\s*:\s*"([^"]*)"/) || data.match(/(?<="src":")[^"]*(https:\/\/[^"]*)/);
+      const hdMatch = data.match(/"browser_native_hd_url":"(.*?)"/) || data.match(/"playable_url_quality_hd":"(.*?)"/) || data.match(/hd_src\s*:\s*"([^"]*)"/);
       const titleMatch = data.match(/<meta\sname="description"\scontent="(.*?)"/);
       const thumbMatch = data.match(/"preferred_thumbnail":{"image":{"uri":"(.*?)"/);
+			
+			// @TODO: Extract audio URL
 
       if (sdMatch && sdMatch[1]) {
         const result = {
