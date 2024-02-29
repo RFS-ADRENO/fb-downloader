@@ -16,4 +16,12 @@ export interface VideoInfo {
     hd: string;
     title: string;
     thumbnail: string;
+    owner: {
+        id: string;
+        name: string;
+        url: string;
+        displayPicture: {
+            small: string;
+        };
+    };
 }
