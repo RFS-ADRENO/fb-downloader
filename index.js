@@ -43,12 +43,12 @@ const getFBInfo = (videoUrl, cookie, useragent) => {
       const hdMatch = data.match(/"browser_native_hd_url":"(.*?)"/) || data.match(/"playable_url_quality_hd":"(.*?)"/) || data.match(/hd_src\s*:\s*"([^"]*)"/);
       const titleMatch = data.match(/<meta\sname="description"\scontent="(.*?)"/);
       const thumbMatch = data.match(/"preferred_thumbnail":{"image":{"uri":"(.*?)"/);
-      const ownerInfoMatch = data.match(/"video_owner":\{"__typename":"User","__isActor":"User","id":"([^"]*)","name":"([^"]*)","enable_reels_tab_deeplink":false,"is_verified":false,"url":"([^"]*)","displayPicture":\{"uri":"([^"]*)"\},"subscribe_status":"([^"]*)"\}/);
+      const ownerInfoMatch = data.match(/"video_owner":\{"__typename":"[^"]*","__isActor":"[^"]*","id":"([^"]*)","name":"([^"]*)","enable_reels_tab_deeplink":[^]*,"is_verified":[^]*,"url":"[^"]*","displayPicture":\{"uri":"([^"]*)"\}/) ||
+      data.match(/"owner":{"__typename":"User","id":"([^"]*)","name":"([^"]*)","profile_picture":{"uri":"([^"]*)"/);
       const ownerInfo = ownerInfoMatch ? {
         id: ownerInfoMatch[1],
         name: ownerInfoMatch[2],
-        url: ownerInfoMatch[3].replace(/\\/g, ''),
-        displayPicture: { small: ownerInfoMatch[4].replace(/\\/g, '') },
+        displayPicture: { small: ownerInfoMatch[3].replace(/\\/g, '') },
     } : null;
       
 			// @TODO: Extract audio URL
