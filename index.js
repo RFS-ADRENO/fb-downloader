@@ -43,12 +43,16 @@ const getFBInfo = (videoUrl, cookie, useragent) => {
       const hdMatch = data.match(/"browser_native_hd_url":"(.*?)"/) || data.match(/"playable_url_quality_hd":"(.*?)"/) || data.match(/hd_src\s*:\s*"([^"]*)"/);
       const titleMatch = data.match(/<meta\sname="description"\scontent="(.*?)"/);
       const thumbMatch = data.match(/"preferred_thumbnail":{"image":{"uri":"(.*?)"/);
-      const ownerInfoMatch = data.match(/"video_owner":\{"__typename":"[^"]*","__isActor":"[^"]*","id":"([^"]*)","name":"([^"]*)","enable_reels_tab_deeplink":[^]*,"is_verified":[^]*,"url":"[^"]*","displayPicture":\{"uri":"([^"]*)"\}/) ||
-      data.match(/"owner":{"__typename":"User","id":"([^"]*)","name":"([^"]*)","profile_picture":{"uri":"([^"]*)"/);
+      const ownerInfoMatch = data.match(/"video_owner":\{"__typename":"[^"]*","__isActor":"[^"]*","id":"([^"]*)","name":"([^"]*)","enable_reels_tab_deeplink":[^]*,"is_verified":[^]*,"url":"[^"]*","displayPicture":\{"uri":"([^"]*)"\}/) || data.match(/"owner":{"__typename":"User","id":"([^"]*)","name":"([^"]*)","profile_picture":{"uri":"([^"]*)"/);
+      const altOwnerInfoMatch = data.match(/"author":\{"__typename":"User","name":"([^"]*)","profilePictureForReplyExpander":\{"uri":"([^"]*)"\},"gender":"([^"]*)","id":"([^"]*)"\}/);
+
       const ownerInfo = ownerInfoMatch ? {
         id: ownerInfoMatch[1],
         name: ownerInfoMatch[2],
         displayPicture: { small: ownerInfoMatch[3].replace(/\\/g, '') },
+    } : altOwnerInfoMatch ? {
+        name: altOwnerInfoMatch[1],
+        displayPicture: { small: altOwnerInfoMatch[2].replace(/\\/g, '') },
     } : null;
       
 			// @TODO: Extract audio URL
